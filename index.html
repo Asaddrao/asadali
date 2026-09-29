@@ -1,0 +1,1167 @@
+<!doctype html>
+<html lang="en" data-theme="obsidian">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Asad Ali Rao — Frontend Engineer</title>
+  <meta name="description" content="Asad Ali Rao — Frontend engineer with 6+ years building fast, responsive, pixel-perfect interfaces with React, Next.js, Vue, Nuxt, Angular, Tailwind and Laravel." />
+  <meta name="author" content="Asad Ali Rao" />
+  <meta name="theme-color" content="#0a0a0b" />
+
+  <!-- Icons -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Social share (replace SITE_URL if you deploy somewhere else) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Asad Ali Rao" />
+  <meta property="og:url" content="https://asaddrao.github.io/asadali/" />
+  <meta property="og:title" content="Asad Ali Rao — Frontend Engineer" />
+  <meta property="og:description" content="6+ years crafting fast, responsive, pixel-perfect interfaces. React · Next.js · Vue · Nuxt · Angular · Tailwind." />
+  <meta property="og:image" content="https://asaddrao.github.io/asadali/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Asad Ali Rao — Frontend Engineer" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@asaddrao" />
+  <meta name="twitter:title" content="Asad Ali Rao — Frontend Engineer" />
+  <meta name="twitter:description" content="6+ years crafting fast, responsive, pixel-perfect interfaces." />
+  <meta name="twitter:image" content="https://asaddrao.github.io/asadali/assets/og-image.png" />
+
+  <!-- Set theme before paint (no flash) -->
+  <script>
+    (function () {
+      try {
+        var t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('theme');
+        if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'paper' : 'obsidian';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    const c = (v) => `rgb(var(--${v}) / <alpha-value>)`;
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: c('bg'), surface: c('surface'), surface2: c('surface2'),
+            ink: c('ink'), muted: c('muted'), line: c('line'),
+            accent: c('accent'), accent2: c('accent2'), onaccent: c('onaccent'),
+          },
+          fontFamily: {
+            sans: ['var(--font-sans)'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+            serif: ['var(--font-serif)'],
+          },
+          keyframes: {
+            marquee: { to: { transform: 'translateX(-50%)' } },
+            blink: { '50%': { opacity: 0 } },
+            pulseDot: { '0%': { boxShadow: '0 0 0 0 rgb(var(--accent) / .6)' }, '100%': { boxShadow: '0 0 0 10px rgb(var(--accent) / 0)' } },
+          },
+          animation: {
+            marquee: 'marquee 40s linear infinite',
+            blink: 'blink 1s steps(1) infinite',
+            pulseDot: 'pulseDot 1.6s ease-out infinite',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* ───────────── THEMES ───────────── */
+    :root {
+      --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+    }
+    [data-theme="paper"]     { --bg:250 250 247; --surface:255 255 255; --surface2:243 242 237; --ink:23 23 23;    --muted:108 108 102; --line:228 227 220; --accent:234 88 12;   --accent2:37 99 235;   --onaccent:255 255 255; color-scheme: light; }
+    [data-theme="obsidian"]  { --bg:10 10 11;    --surface:17 17 19;    --surface2:25 25 28;    --ink:236 236 236; --muted:150 150 157; --line:38 38 43;    --accent:190 242 100; --accent2:56 189 248;  --onaccent:10 10 11;    color-scheme: dark; }
+    [data-theme="terminal"]  { --bg:5 9 5;       --surface:9 16 9;      --surface2:13 24 13;    --ink:190 255 190; --muted:95 170 105;  --line:28 58 30;    --accent:57 255 120;  --accent2:255 204 64;  --onaccent:0 0 0;       color-scheme: dark; --font-sans: 'JetBrains Mono', monospace; --font-serif: 'JetBrains Mono', monospace; }
+    [data-theme="synthwave"] { --bg:24 10 44;    --surface:35 15 62;    --surface2:48 21 82;    --ink:255 236 252; --muted:192 152 218; --line:72 38 112;   --accent:255 64 176;  --accent2:45 226 230;  --onaccent:24 10 44;    color-scheme: dark; }
+    [data-theme="blueprint"] { --bg:15 48 108;   --surface:20 58 126;   --surface2:27 69 144;   --ink:236 244 255; --muted:164 194 234; --line:66 108 178;  --accent:255 255 255; --accent2:125 211 252; --onaccent:15 48 108;   color-scheme: dark; --font-serif: 'JetBrains Mono', monospace; }
+    [data-theme="latte"]     { --bg:244 237 226; --surface:251 246 238; --surface2:235 225 210; --ink:58 38 28;    --muted:128 104 88;  --line:220 205 186; --accent:156 84 40;  --accent2:176 128 56;  --onaccent:255 250 244; color-scheme: light; }
+    [data-theme="nord"]      { --bg:46 52 64;    --surface:56 63 78;    --surface2:66 75 93;    --ink:236 239 244; --muted:172 182 198; --line:78 88 108;   --accent:136 192 208; --accent2:163 190 140; --onaccent:46 52 64;    color-scheme: dark; }
+    [data-theme="forest"]    { --bg:13 24 18;    --surface:20 34 26;    --surface2:28 46 35;    --ink:226 238 226; --muted:142 172 150; --line:42 64 50;    --accent:134 239 172; --accent2:250 204 21;  --onaccent:13 24 18;    color-scheme: dark; }
+    [data-theme="dracula"]   { --bg:40 42 54;    --surface:48 50 66;    --surface2:62 65 84;    --ink:248 248 242; --muted:172 176 202; --line:72 75 98;    --accent:189 147 249; --accent2:255 121 198; --onaccent:40 42 54;    color-scheme: dark; }
+    [data-theme="sakura"]    { --bg:255 246 248; --surface:255 255 255; --surface2:252 232 238; --ink:62 22 42;    --muted:150 102 122; --line:246 212 222; --accent:219 39 119; --accent2:124 58 237;  --onaccent:255 255 255; color-scheme: light; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+    body { background: rgb(var(--bg)); color: rgb(var(--ink)); transition: background-color .4s, color .4s; }
+    ::selection { background: rgb(var(--accent) / .3); }
+
+    /* ambient background */
+    .bg-grid {
+      background-image:
+        linear-gradient(rgb(var(--line) / .5) 1px, transparent 1px),
+        linear-gradient(90deg, rgb(var(--line) / .5) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+    }
+    [data-theme="terminal"] h1 { font-size: clamp(2.1rem, 5vw, 3.7rem); letter-spacing: -.02em; }
+    [data-theme="blueprint"] .bg-grid { mask-image: none; opacity: .55; }
+    [data-theme="terminal"] body::after {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 100;
+      background: repeating-linear-gradient(0deg, rgb(0 0 0 / .18) 0 1px, transparent 1px 3px);
+    }
+    .glow {
+      background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 0%), rgb(var(--accent) / .10), transparent 40%);
+    }
+
+    /* spotlight cards */
+    .spot { position: relative; isolation: isolate; }
+    .spot::before {
+      content: ''; position: absolute; inset: 0; border-radius: inherit; z-index: -1; opacity: 0; transition: opacity .3s;
+      background: radial-gradient(400px circle at var(--x, 50%) var(--y, 50%), rgb(var(--accent) / .09), transparent 45%);
+    }
+    .spot:hover::before { opacity: 1; }
+
+    /* project screenshot hover-scroll */
+    .shot { height: 17rem; overflow: hidden; }
+    .shot img { transition: transform 6s cubic-bezier(.45,.05,.55,.95); }
+    .group:hover .shot img, .group:focus-visible .shot img { transform: translateY(calc(-100% + 17rem)); }
+
+    /* reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    .marquee-mask { mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+    .nav-link.active { color: rgb(var(--ink)); }
+    .nav-link.active::after { transform: scaleX(1); }
+    .nav-link::after { content:''; position:absolute; left:.75rem; right:.75rem; bottom:.35rem; height:1px; background: rgb(var(--accent)); transform: scaleX(0); transition: transform .3s; transform-origin: left; }
+
+    @keyframes scBar { from { width: 0 } to { width: 100% } }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { scrollbar-width: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body class="font-sans antialiased overflow-x-hidden">
+  <!-- scroll progress -->
+  <div id="progress" class="fixed top-0 left-0 z-[60] h-[2px] w-full origin-left scale-x-0 bg-accent"></div>
+
+  <!-- ambient -->
+  <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10">
+    <div class="bg-grid absolute inset-0"></div>
+    <div id="glow" class="glow absolute inset-0"></div>
+  </div>
+
+  <!-- ───────────── NAV ───────────── -->
+  <header class="fixed inset-x-0 top-0 z-50">
+    <nav class="mx-auto mt-3 flex max-w-6xl items-center justify-between gap-3 rounded-2xl border border-line/80 bg-bg/70 px-3 py-2 backdrop-blur-xl sm:mx-4 lg:mx-auto mx-3">
+      <a href="#top" class="group flex items-center gap-2 rounded-lg px-2 py-1 font-mono text-sm">
+        <span class="grid h-7 w-7 place-items-center rounded-lg bg-accent text-[11px] font-semibold text-onaccent">AR</span>
+        <span class="hidden sm:inline"><span class="text-muted">~/</span>asad<span class="text-accent">.</span>rao</span>
+      </a>
+
+      <ul class="hidden items-center md:flex">
+        <li><a href="#about" class="nav-link relative block px-3 py-2 text-sm text-muted transition hover:text-ink">About</a></li>
+        <li><a href="#experience" class="nav-link relative block px-3 py-2 text-sm text-muted transition hover:text-ink">Experience</a></li>
+        <li><a href="#services" class="nav-link relative block px-3 py-2 text-sm text-muted transition hover:text-ink">Services</a></li>
+        <li><a href="#work" class="nav-link relative block px-3 py-2 text-sm text-muted transition hover:text-ink">Work</a></li>
+        <li><a href="#contact" class="nav-link relative block px-3 py-2 text-sm text-muted transition hover:text-ink">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-1.5">
+        <button id="kbarBtn" class="hidden items-center gap-2 rounded-lg border border-line bg-surface px-2.5 py-1.5 font-mono text-xs text-muted transition hover:border-accent/60 hover:text-ink sm:flex" aria-label="Open command palette">
+          <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <span>Search</span>
+          <kbd class="rounded border border-line bg-surface2 px-1.5 text-[10px]">Ctrl K</kbd>
+        </button>
+
+        <div class="relative">
+          <button id="themeBtn" aria-haspopup="true" aria-expanded="false" class="flex items-center gap-2 rounded-lg border border-line bg-surface px-2.5 py-1.5 font-mono text-xs text-muted transition hover:border-accent/60 hover:text-ink">
+            <span class="flex -space-x-1">
+              <span class="h-3 w-3 rounded-full border border-bg bg-accent"></span>
+              <span class="h-3 w-3 rounded-full border border-bg bg-accent2"></span>
+            </span>
+            <span id="themeName" class="hidden sm:inline">theme</span>
+            <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div id="themeMenu" role="menu" class="invisible absolute right-0 top-[calc(100%+10px)] w-72 origin-top-right scale-95 rounded-2xl border border-line bg-surface p-2 opacity-0 shadow-2xl shadow-black/20 transition duration-200">
+            <p class="px-2 pb-2 pt-1 font-mono text-[11px] uppercase tracking-widest text-muted">// pick a theme <span class="float-right normal-case tracking-normal">press <kbd class="rounded border border-line px-1">T</kbd></span></p>
+            <div id="themeList" class="grid grid-cols-2 gap-1.5"></div>
+          </div>
+        </div>
+
+        <button id="menuBtn" class="grid h-8 w-8 place-items-center rounded-lg border border-line bg-surface md:hidden" aria-label="Open menu" aria-expanded="false">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- mobile menu -->
+    <div id="mobileMenu" class="mx-3 mt-2 hidden rounded-2xl border border-line bg-surface/95 p-2 backdrop-blur-xl md:hidden">
+      <a href="#about" class="block rounded-lg px-3 py-3 font-mono text-sm hover:bg-surface2"><span class="text-accent">01.</span> About</a>
+      <a href="#experience" class="block rounded-lg px-3 py-3 font-mono text-sm hover:bg-surface2"><span class="text-accent">02.</span> Experience</a>
+      <a href="#services" class="block rounded-lg px-3 py-3 font-mono text-sm hover:bg-surface2"><span class="text-accent">03.</span> Services</a>
+      <a href="#work" class="block rounded-lg px-3 py-3 font-mono text-sm hover:bg-surface2"><span class="text-accent">04.</span> Work</a>
+      <a href="#principles" class="block rounded-lg px-3 py-3 font-mono text-sm hover:bg-surface2"><span class="text-accent">05.</span> Principles</a>
+      <a href="#contact" class="block rounded-lg px-3 py-3 font-mono text-sm hover:bg-surface2"><span class="text-accent">06.</span> Contact</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ───────────── HERO ───────────── -->
+    <section class="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-20 pt-32 sm:px-6 md:pt-40 lg:grid-cols-[1.15fr_.85fr] [&>*]:min-w-0">
+      <div>
+        <a href="#featured" class="group reveal mb-7 inline-flex items-center gap-2.5 rounded-full border border-line bg-surface/70 py-1.5 pl-2 pr-3.5 font-mono text-xs text-muted backdrop-blur transition hover:border-[#ff6b00]/60 hover:text-ink">
+          <span class="relative h-2 w-2 rounded-full bg-accent animate-pulseDot"></span>
+          currently crafting UI/UX @ <span class="text-[#ff7a1a]">Social Champ</span>
+          <span class="transition group-hover:translate-x-0.5">→</span>
+        </a>
+
+        <h1 class="reveal text-[2.6rem] font-semibold leading-[1.02] tracking-tight sm:text-6xl lg:text-[4.6rem]" style="transition-delay:.05s">
+          I build interfaces<br class="hidden sm:block" />
+          that feel <span class="font-serif font-normal italic text-accent">effortless</span><span class="text-accent">.</span>
+        </h1>
+
+        <p class="reveal mt-6 max-w-xl text-lg leading-relaxed text-muted" style="transition-delay:.1s">
+          Hi, I'm <span class="font-medium text-ink">Asad Ali Rao</span> — a frontend engineer turning designs into fast, responsive, pixel-perfect products with
+          <span class="text-ink">React</span>, <span class="text-ink">Next.js</span>, <span class="text-ink">Vue</span>, <span class="text-ink">Angular</span> &amp; <span class="text-ink">Tailwind</span>.
+        </p>
+
+        <p class="reveal mt-5 font-mono text-sm text-muted" style="transition-delay:.15s">
+          <span class="text-accent">$</span> currently_building --as <span id="typed" class="text-ink"></span><span class="ml-0.5 inline-block h-4 w-2 translate-y-0.5 bg-accent animate-blink"></span>
+        </p>
+
+        <div class="reveal mt-9 flex flex-wrap items-center gap-3" style="transition-delay:.2s">
+          <a href="#work" class="group inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-medium text-onaccent transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/25">
+            View my work
+            <svg class="h-4 w-4 transition group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#contact" class="inline-flex items-center gap-2 rounded-xl border border-line bg-surface px-5 py-3 text-sm font-medium transition hover:-translate-y-0.5 hover:border-accent/60">
+            Let's talk
+          </a>
+          <button data-copy="asaddrao@gmail.com" class="copy-btn inline-flex items-center gap-2 rounded-xl px-3 py-3 font-mono text-xs text-muted transition hover:text-ink">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+            <span>asaddrao@gmail.com</span>
+          </button>
+        </div>
+
+        <div class="reveal mt-12 flex flex-wrap gap-x-8 gap-y-4 border-t border-line pt-6 font-mono text-xs text-muted" style="transition-delay:.25s">
+          <div><span class="yearsExp block font-sans text-2xl font-semibold text-ink">6+</span>years experience</div>
+          <div><span id="statProjects" class="block font-sans text-2xl font-semibold text-ink">22</span>live projects</div>
+          <div><span class="block font-sans text-2xl font-semibold text-ink">5</span>companies</div>
+          <div><span id="clock" class="block font-sans text-2xl font-semibold text-ink">--:--</span>Karachi, PK</div>
+        </div>
+      </div>
+
+      <!-- code card -->
+      <div class="reveal relative" style="transition-delay:.2s">
+        <div aria-hidden="true" class="absolute -inset-6 rounded-[2rem] bg-gradient-to-tr from-accent/20 via-transparent to-accent2/20 blur-2xl"></div>
+        <div class="spot relative overflow-hidden rounded-2xl border border-line bg-surface shadow-2xl shadow-black/20">
+          <div class="flex items-center gap-2 border-b border-line bg-surface2/60 px-4 py-3">
+            <span class="h-3 w-3 rounded-full bg-[#ff5f57]"></span>
+            <span class="h-3 w-3 rounded-full bg-[#febc2e]"></span>
+            <span class="h-3 w-3 rounded-full bg-[#28c840]"></span>
+            <span class="ml-3 rounded-md bg-bg/60 px-2 py-0.5 font-mono text-[11px] text-muted">asad.config.ts</span>
+          </div>
+          <pre class="overflow-x-auto p-5 font-mono text-[12.5px] leading-[1.85] sm:text-[13px]"><code><span class="text-muted">// hello, world 👋</span>
+<span class="text-accent2">const</span> asad <span class="text-muted">=</span> {
+  role<span class="text-muted">:</span>     <span class="text-accent">'Frontend Engineer'</span>,
+  based<span class="text-muted">:</span>    <span class="text-accent">'Pakistan · remote'</span>,
+  now<span class="text-muted">:</span>      <span class="text-accent">'@ Social Champ'</span>,
+  stack<span class="text-muted">:</span>    [<span class="text-accent">'React'</span>, <span class="text-accent">'Next.js'</span>, <span class="text-accent">'Vue'</span>,
+             <span class="text-accent">'Nuxt'</span>, <span class="text-accent">'Angular'</span>, <span class="text-accent">'Laravel'</span>],
+  styling<span class="text-muted">:</span>  [<span class="text-accent">'Tailwind'</span>, <span class="text-accent">'Sass'</span>, <span class="text-accent">'Bootstrap'</span>],
+  cms<span class="text-muted">:</span>      [<span class="text-accent">'WordPress'</span>, <span class="text-accent">'Elementor'</span>],
+  obsessed<span class="text-muted">:</span> <span class="text-accent">'pixel-perfect UI'</span>,
+  <span class="text-accent2">ship</span>()   { <span class="text-accent2">return</span> <span class="text-accent">'fast · clean · responsive'</span> },
+};
+
+<span class="text-accent2">export default</span> asad; <span class="text-muted">// ✓ compiled in 0.3s</span></code></pre>
+          <div class="flex items-center justify-between border-t border-line px-4 py-2 font-mono text-[11px] text-muted">
+            <span><span class="text-accent">●</span> main</span>
+            <span>TypeScript · UTF-8 · <span id="themeStatus">obsidian</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── MARQUEE ───────────── -->
+    <section aria-label="Tech stack" class="marquee-mask overflow-hidden border-y border-line bg-surface/40 py-5">
+      <div class="flex w-max animate-marquee gap-10 font-mono text-sm text-muted hover:[animation-play-state:paused]" id="marquee"></div>
+    </section>
+
+    <!-- ───────────── ABOUT ───────────── -->
+    <section id="about" class="mx-auto max-w-6xl px-4 py-24 sm:px-6 md:py-32">
+      <p class="reveal font-mono text-xs uppercase tracking-[.2em] text-accent">01 — about</p>
+      <div class="mt-5 grid gap-12 lg:grid-cols-[1fr_1fr]">
+        <h2 class="reveal text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">
+          Where <span class="font-serif font-normal italic">design</span> meets clean, <span class="font-serif font-normal italic text-accent">scalable</span> code.
+        </h2>
+        <div class="reveal space-y-5 text-lg leading-relaxed text-muted">
+          <p>I'm a frontend developer with <span class="yearsExp text-ink">6+</span> <span class="text-ink">years</span> of experience across five companies — currently at <span class="text-ink">Social Champ</span>. My main goal is to combine <span class="text-ink">technology and design</span> to create inviting, easy-to-use websites — and to build lasting relationships with the people I work with.</p>
+          <p>From agency sites in the UK to real-estate platforms in Pakistan and e-commerce stores in the UAE, I've shipped production work for clients across <span class="text-ink">6 countries</span>. I care about the details users feel but rarely notice.</p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="rounded-full border border-line bg-surface px-3 py-1 font-mono text-xs text-ink">Pakistan</span>
+            <span class="rounded-full border border-line bg-surface px-3 py-1 font-mono text-xs text-ink">UK</span>
+            <span class="rounded-full border border-line bg-surface px-3 py-1 font-mono text-xs text-ink">UAE</span>
+            <span class="rounded-full border border-line bg-surface px-3 py-1 font-mono text-xs text-ink">Norway</span>
+            <span class="rounded-full border border-line bg-surface px-3 py-1 font-mono text-xs text-ink">Australia</span>
+            <span class="rounded-full border border-line bg-surface px-3 py-1 font-mono text-xs text-ink">Afghanistan</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── EXPERIENCE ───────────── -->
+    <section id="experience" class="mx-auto max-w-6xl px-4 pb-24 sm:px-6 md:pb-32">
+      <div class="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
+        <div class="lg:sticky lg:top-28 lg:self-start">
+          <p class="reveal font-mono text-xs uppercase tracking-[.2em] text-accent">02 — experience</p>
+          <h2 class="reveal mt-4 text-3xl font-semibold tracking-tight sm:text-5xl">Where I've <span class="font-serif font-normal italic">worked</span>.</h2>
+          <p class="reveal mt-4 max-w-sm text-muted"><span class="yearsExp text-ink">6+</span> years shipping production frontends — from agency builds to SaaS products.</p>
+
+          <!-- career bar -->
+          <div class="reveal mt-10">
+            <div class="flex justify-between font-mono text-[11px] text-muted"><span id="careerStart">2020</span><span>now</span></div>
+            <div id="careerBar" class="mt-2 flex h-3 gap-[3px] overflow-hidden rounded-full"></div>
+            <ul id="careerLegend" class="mt-4 grid grid-cols-2 gap-x-4 gap-y-1.5 font-mono text-[11px] text-muted"></ul>
+          </div>
+        </div>
+
+        <ol id="experienceList" class="relative border-l border-line pl-8 sm:pl-10">
+          <span id="expFill" aria-hidden="true" class="absolute -left-px top-0 w-px origin-top bg-accent" style="height:100%;transform:scaleY(0)"></span>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ───────────── FEATURED: SOCIAL CHAMP ───────────── -->
+    <section id="featured" class="relative overflow-hidden border-y border-line bg-surface/40">
+      <div aria-hidden="true" class="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-[#ff6b00]/15 blur-3xl"></div>
+      <div class="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 md:py-32">
+        <div class="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div>
+            <p class="reveal inline-flex items-center gap-2 rounded-full border border-[#ff6b00]/40 bg-[#ff6b00]/10 px-3 py-1 font-mono text-xs text-[#ff7a1a]">
+              <span class="h-1.5 w-1.5 rounded-full bg-[#ff6b00] animate-pulseDot"></span>
+              ★ featured case study · currently shipping
+            </p>
+            <h2 class="reveal mt-6 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
+              The <span class="text-[#ff6b00]">Social Champ</span> panel —
+              <span class="font-serif font-normal italic">designed &amp; built</span> by me.
+            </h2>
+            <p class="reveal mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+              At Social Champ I'm the <span class="text-ink">UI/UX &amp; frontend engineer on the web app</span> — the platform marketers and agencies use to schedule, publish and analyse social media. Every screen below is designed and coded by me: from the analytics dashboard and post composer to workspace settings and the onboarding flow.
+            </p>
+          </div>
+          <div class="reveal flex flex-wrap gap-3 lg:flex-col lg:items-end">
+            <a href="https://www.socialchamp.com/" target="_blank" rel="noopener" class="group inline-flex items-center gap-2 rounded-xl bg-[#ff6b00] px-5 py-3 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#ff6b00]/30">
+              Visit socialchamp.com
+              <svg class="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <a href="https://app.socialchamp.com/login" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl border border-line bg-surface px-5 py-3 font-mono text-xs text-muted transition hover:border-[#ff6b00]/60 hover:text-ink">
+              app.socialchamp.com ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- facts -->
+        <dl class="reveal mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
+          <div class="bg-surface p-5"><dt class="font-mono text-[11px] uppercase tracking-widest text-muted">role</dt><dd class="mt-2 font-medium">UI/UX + Frontend</dd></div>
+          <div class="bg-surface p-5"><dt class="font-mono text-[11px] uppercase tracking-widest text-muted">since</dt><dd class="mt-2 font-medium">Oct 2024 → now</dd></div>
+          <div class="bg-surface p-5"><dt class="font-mono text-[11px] uppercase tracking-widest text-muted">product</dt><dd class="mt-2 font-medium">Social media SaaS</dd></div>
+          <div class="bg-surface p-5"><dt class="font-mono text-[11px] uppercase tracking-widest text-muted">scope</dt><dd class="mt-2 font-medium">Design → code → ship</dd></div>
+        </dl>
+
+        <!-- showcase -->
+        <div class="reveal mt-10 grid gap-6 lg:grid-cols-[280px_1fr]">
+          <!-- tabs -->
+          <div id="scTabs" role="tablist" aria-label="Social Champ screens" class="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 lg:mx-0 lg:flex-col lg:overflow-visible lg:px-0"></div>
+
+          <!-- frame -->
+          <div class="min-w-0">
+            <div class="relative">
+              <div aria-hidden="true" class="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#ff6b00]/25 via-transparent to-accent2/20 blur-2xl"></div>
+              <div class="relative overflow-hidden rounded-2xl border border-line bg-surface shadow-2xl shadow-black/30">
+                <div class="flex items-center gap-2 border-b border-line bg-surface2/70 px-4 py-2.5">
+                  <span class="h-3 w-3 rounded-full bg-[#ff5f57]"></span>
+                  <span class="h-3 w-3 rounded-full bg-[#febc2e]"></span>
+                  <span class="h-3 w-3 rounded-full bg-[#28c840]"></span>
+                  <span class="ml-3 flex-1 truncate rounded-md bg-bg/60 px-3 py-1 font-mono text-[11px] text-muted">🔒 app.socialchamp.com/<span id="scPath" class="text-ink">analytics</span></span>
+                  <button id="scZoom" class="hidden rounded-md px-2 py-1 font-mono text-[11px] text-muted transition hover:bg-bg/60 hover:text-ink sm:block" aria-label="Open full screen">⤢ expand</button>
+                </div>
+                <button id="scStage" class="relative block aspect-[1912/874] w-full cursor-zoom-in bg-white" aria-label="Open screenshot full screen"></button>
+              </div>
+            </div>
+            <div class="mt-5 flex flex-wrap items-start justify-between gap-4">
+              <div>
+                <h3 id="scTitle" class="text-xl font-semibold tracking-tight"></h3>
+                <p id="scDesc" class="mt-1 max-w-xl text-sm text-muted"></p>
+              </div>
+              <div class="flex items-center gap-2">
+                <button id="scPrev" class="grid h-10 w-10 place-items-center rounded-full border border-line bg-surface transition hover:border-[#ff6b00]/60" aria-label="Previous screen">←</button>
+                <button id="scPlay" class="grid h-10 w-10 place-items-center rounded-full border border-line bg-surface font-mono text-xs transition hover:border-[#ff6b00]/60" aria-label="Pause autoplay">❚❚</button>
+                <button id="scNext" class="grid h-10 w-10 place-items-center rounded-full border border-line bg-surface transition hover:border-[#ff6b00]/60" aria-label="Next screen">→</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- what I own -->
+        <div class="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="spot reveal rounded-2xl border border-line bg-surface p-6">
+            <span class="font-mono text-xs text-[#ff7a1a]">01 /</span>
+            <h4 class="mt-3 font-semibold">Design system</h4>
+            <p class="mt-2 text-sm text-muted">Buttons, inputs, tables, chips, toasts and empty states — one consistent component language across the app.</p>
+          </article>
+          <article class="spot reveal rounded-2xl border border-line bg-surface p-6" style="transition-delay:.06s">
+            <span class="font-mono text-xs text-[#ff7a1a]">02 /</span>
+            <h4 class="mt-3 font-semibold">Data-heavy dashboards</h4>
+            <p class="mt-2 text-sm text-muted">Analytics KPI cards, trend deltas, filters and date ranges that make big numbers easy to read.</p>
+          </article>
+          <article class="spot reveal rounded-2xl border border-line bg-surface p-6" style="transition-delay:.12s">
+            <span class="font-mono text-xs text-[#ff7a1a]">03 /</span>
+            <h4 class="mt-3 font-semibold">Complex workflows</h4>
+            <p class="mt-2 text-sm text-muted">A multi-network post composer with live preview, AI suggestions, approvals and scheduling.</p>
+          </article>
+          <article class="spot reveal rounded-2xl border border-line bg-surface p-6" style="transition-delay:.18s">
+            <span class="font-mono text-xs text-[#ff7a1a]">04 /</span>
+            <h4 class="mt-3 font-semibold">Onboarding &amp; activation</h4>
+            <p class="mt-2 text-sm text-muted">Guided tours and step-by-step setup that get new users from sign-up to their first post, fast.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- lightbox -->
+    <dialog id="lightbox" class="m-auto max-h-[95vh] w-[min(96vw,1600px)] overflow-visible bg-transparent p-0 backdrop:bg-black/80 backdrop:backdrop-blur-sm">
+      <img id="lbImg" alt="" class="max-h-[88vh] w-full rounded-xl object-contain shadow-2xl" />
+      <div class="mt-3 flex items-center justify-between gap-3 font-mono text-xs text-white/80">
+        <span id="lbCap"></span>
+        <span class="flex gap-2">
+          <button id="lbPrev" class="rounded-lg border border-white/20 px-3 py-1.5 hover:bg-white/10">← prev</button>
+          <button id="lbNext" class="rounded-lg border border-white/20 px-3 py-1.5 hover:bg-white/10">next →</button>
+          <button id="lbClose" class="rounded-lg border border-white/20 px-3 py-1.5 hover:bg-white/10">esc ✕</button>
+        </span>
+      </div>
+    </dialog>
+
+    <!-- ───────────── SERVICES (bento) ───────────── -->
+    <section id="services" class="mx-auto max-w-6xl px-4 pb-24 sm:px-6 md:pb-32">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="reveal font-mono text-xs uppercase tracking-[.2em] text-accent">03 — services</p>
+          <h2 class="reveal mt-4 text-3xl font-semibold tracking-tight sm:text-5xl">What I <span class="font-serif font-normal italic">do</span> best.</h2>
+        </div>
+        <p class="reveal max-w-sm text-muted">End-to-end frontend — from the first Figma frame to a fast, maintained site in production.</p>
+      </div>
+
+      <div class="mt-12 grid gap-4 md:grid-cols-6">
+        <!-- big -->
+        <article class="spot reveal overflow-hidden rounded-3xl border border-line bg-surface p-7 md:col-span-4 md:row-span-2">
+          <div class="flex items-center justify-between">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-accent/15 text-accent">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>
+            </span>
+            <span class="font-mono text-xs text-muted">/frontend</span>
+          </div>
+          <h3 class="mt-6 text-2xl font-semibold tracking-tight">Frontend Development</h3>
+          <p class="mt-3 max-w-md text-muted">High-quality, scalable and reusable front-end architecture — component-driven apps in modern frameworks, styled with a clean design system.</p>
+          <div class="mt-8 grid gap-3 sm:grid-cols-3">
+            <div class="rounded-2xl border border-line bg-bg/50 p-4">
+              <p class="font-mono text-[11px] uppercase tracking-widest text-muted">frameworks</p>
+              <p class="mt-2 text-sm">React · Next.js · Vue · Nuxt · Angular</p>
+            </div>
+            <div class="rounded-2xl border border-line bg-bg/50 p-4">
+              <p class="font-mono text-[11px] uppercase tracking-widest text-muted">styling</p>
+              <p class="mt-2 text-sm">Tailwind · Sass · Less · Bootstrap</p>
+            </div>
+            <div class="rounded-2xl border border-line bg-bg/50 p-4">
+              <p class="font-mono text-[11px] uppercase tracking-widest text-muted">backend &amp; cms</p>
+              <p class="mt-2 text-sm">Laravel · WordPress · Elementor</p>
+            </div>
+          </div>
+          <!-- faux responsive preview -->
+          <div aria-hidden="true" class="mt-8 flex items-end gap-3">
+            <div class="h-28 flex-1 rounded-xl border border-line bg-bg/60 p-2"><div class="h-2 w-1/3 rounded bg-accent/60"></div><div class="mt-2 grid grid-cols-3 gap-1.5"><div class="h-12 rounded bg-surface2"></div><div class="h-12 rounded bg-surface2"></div><div class="h-12 rounded bg-surface2"></div></div></div>
+            <div class="h-24 w-24 rounded-xl border border-line bg-bg/60 p-2"><div class="h-2 w-1/2 rounded bg-accent2/60"></div><div class="mt-2 grid grid-cols-2 gap-1"><div class="h-10 rounded bg-surface2"></div><div class="h-10 rounded bg-surface2"></div></div></div>
+            <div class="h-20 w-11 rounded-lg border border-line bg-bg/60 p-1.5"><div class="h-1.5 w-2/3 rounded bg-accent/60"></div><div class="mt-1.5 h-10 rounded bg-surface2"></div></div>
+          </div>
+        </article>
+
+        <article class="spot reveal rounded-3xl border border-line bg-surface p-7 md:col-span-2">
+          <span class="grid h-11 w-11 place-items-center rounded-xl bg-accent2/15 text-accent2">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+          </span>
+          <h3 class="mt-5 text-xl font-semibold">WordPress</h3>
+          <p class="mt-2 text-sm text-muted">Custom themes and page builds with Elementor &amp; WP Bakery — editable by clients, fast for users.</p>
+        </article>
+
+        <article class="spot reveal rounded-3xl border border-line bg-surface p-7 md:col-span-2">
+          <span class="grid h-11 w-11 place-items-center rounded-xl bg-accent/15 text-accent">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="14" height="10" rx="2"/><rect x="17" y="8" width="5" height="12" rx="1"/><path d="M6 18h6"/></svg>
+          </span>
+          <h3 class="mt-5 text-xl font-semibold">Responsive Design</h3>
+          <p class="mt-2 text-sm text-muted">Mobile, tablet and desktop — every breakpoint considered, every layout tested.</p>
+        </article>
+
+        <article class="spot reveal rounded-3xl border border-line bg-surface p-7 md:col-span-2">
+          <span class="grid h-11 w-11 place-items-center rounded-xl bg-accent2/15 text-accent2">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </span>
+          <h3 class="mt-5 text-xl font-semibold">Performance &amp; Debugging</h3>
+          <p class="mt-2 text-sm text-muted">Bug fixing, troubleshooting and routine optimisation so sites stay quick.</p>
+        </article>
+
+        <article class="spot reveal rounded-3xl border border-line bg-surface p-7 md:col-span-2">
+          <span class="grid h-11 w-11 place-items-center rounded-xl bg-accent/15 text-accent">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+          </span>
+          <h3 class="mt-5 text-xl font-semibold">Graphic Design</h3>
+          <p class="mt-2 text-sm text-muted">Photoshop &amp; Illustrator for assets, mockups and brand visuals.</p>
+        </article>
+
+        <article class="spot reveal rounded-3xl border border-line bg-surface p-7 md:col-span-2">
+          <span class="grid h-11 w-11 place-items-center rounded-xl bg-accent2/15 text-accent2">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </span>
+          <h3 class="mt-5 text-xl font-semibold">Support &amp; New Features</h3>
+          <p class="mt-2 text-sm text-muted">Adding features to existing sites, ongoing support, and managing multiple projects at once.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ───────────── WORK ───────────── -->
+    <section id="work" class="border-t border-line bg-surface/30">
+      <div class="mx-auto max-w-6xl px-4 py-24 sm:px-6 md:py-32">
+        <div class="flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <p class="reveal font-mono text-xs uppercase tracking-[.2em] text-accent">04 — selected work</p>
+            <h2 class="reveal mt-4 text-3xl font-semibold tracking-tight sm:text-5xl">Things I've <span class="font-serif font-normal italic">shipped</span>.</h2>
+            <p class="reveal mt-3 font-mono text-xs text-muted">↳ hover a card to scroll through the full page</p>
+          </div>
+          <div id="filters" role="tablist" aria-label="Filter projects" class="reveal no-scrollbar -mx-4 flex max-w-[calc(100%+2rem)] gap-1.5 overflow-x-auto px-4 sm:mx-0 sm:max-w-none sm:px-0"></div>
+        </div>
+
+        <div id="projects" class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
+      </div>
+    </section>
+
+    <!-- ───────────── PRINCIPLES ───────────── -->
+    <section id="principles" class="mx-auto max-w-6xl px-4 py-24 sm:px-6 md:py-32">
+      <p class="reveal font-mono text-xs uppercase tracking-[.2em] text-accent">05 — principles</p>
+      <h2 class="reveal mt-4 max-w-2xl text-3xl font-semibold tracking-tight sm:text-5xl">How I <span class="font-serif font-normal italic">work</span>.</h2>
+
+      <div class="mt-12 grid gap-4 lg:grid-cols-3">
+        <article class="spot reveal flex flex-col rounded-3xl border border-line bg-surface p-7">
+          <span class="font-mono text-5xl font-semibold text-accent/80">01</span>
+          <h3 class="mt-6 text-xl font-semibold">High-quality code</h3>
+          <p class="mt-2 text-sm text-muted">Good code stands the test of time. Code I consider good:</p>
+          <ul class="mt-5 space-y-2.5 font-mono text-[13px]">
+            <li class="flex gap-2.5"><span class="text-accent">✓</span>does what it should</li>
+            <li class="flex gap-2.5"><span class="text-accent">✓</span>follows a consistent style</li>
+            <li class="flex gap-2.5"><span class="text-accent">✓</span>is easy to understand</li>
+            <li class="flex gap-2.5"><span class="text-accent">✓</span>is well-documented</li>
+            <li class="flex gap-2.5"><span class="text-accent">✓</span>can be tested</li>
+          </ul>
+        </article>
+        <article class="spot reveal flex flex-col rounded-3xl border border-line bg-surface p-7" style="transition-delay:.08s">
+          <span class="font-mono text-5xl font-semibold text-accent/80">02</span>
+          <h3 class="mt-6 text-xl font-semibold">Customer satisfaction</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">My real mission is to satisfy and delight clients — that's what brings them back again and again, and what makes them tell everyone they know.</p>
+          <blockquote class="mt-auto border-l-2 border-accent pl-4 pt-6 font-serif text-xl italic leading-snug">"Delight is a feature."</blockquote>
+        </article>
+        <article class="spot reveal flex flex-col rounded-3xl border border-line bg-surface p-7" style="transition-delay:.16s">
+          <span class="font-mono text-5xl font-semibold text-accent/80">03</span>
+          <h3 class="mt-6 text-xl font-semibold">Well-maintained sites</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">A maintained website attracts new customers and keeps existing ones engaged — customer-centred, routinely refreshed, and every contact point in working order.</p>
+          <div class="mt-auto pt-6">
+            <div class="flex items-center justify-between font-mono text-[11px] text-muted"><span>uptime</span><span class="text-accent">99.9%</span></div>
+            <div class="mt-2 flex gap-[3px]" aria-hidden="true" id="uptime"></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ───────────── CONTACT ───────────── -->
+    <section id="contact" class="relative overflow-hidden border-t border-line">
+      <div class="mx-auto grid max-w-6xl gap-14 px-4 py-24 sm:px-6 md:py-32 lg:grid-cols-2">
+        <div>
+          <p class="reveal font-mono text-xs uppercase tracking-[.2em] text-accent">06 — contact</p>
+          <h2 class="reveal mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
+            Have a project<br />in <span class="font-serif font-normal italic text-accent">mind?</span>
+          </h2>
+          <p class="reveal mt-6 max-w-md text-lg text-muted">I'm open to freelance work and full-time roles. Tell me what you're building — I usually reply within a day.</p>
+
+          <div class="reveal mt-10 space-y-3">
+            <a href="mailto:asaddrao@gmail.com" class="group flex items-center justify-between rounded-2xl border border-line bg-surface p-4 transition hover:border-accent/60">
+              <span><span class="block font-mono text-[11px] uppercase tracking-widest text-muted">email</span><span class="text-lg">asaddrao@gmail.com</span></span>
+              <span class="text-muted transition group-hover:translate-x-1 group-hover:text-accent">→</span>
+            </a>
+            <a href="tel:+923482845011" class="group flex items-center justify-between rounded-2xl border border-line bg-surface p-4 transition hover:border-accent/60">
+              <span><span class="block font-mono text-[11px] uppercase tracking-widest text-muted">phone / whatsapp</span><span class="text-lg">+92 348 2845011</span></span>
+              <span class="text-muted transition group-hover:translate-x-1 group-hover:text-accent">→</span>
+            </a>
+          </div>
+
+          <div class="reveal mt-8 flex flex-wrap gap-2 font-mono text-sm" id="socials"></div>
+        </div>
+
+        <form id="contactForm" class="reveal spot rounded-3xl border border-line bg-surface p-6 sm:p-8">
+          <p class="font-mono text-xs text-muted">// i'm interested in…</p>
+          <div id="topics" class="mt-3 flex flex-wrap gap-2">
+            <button type="button" class="topic rounded-full border border-line px-3.5 py-1.5 text-sm transition" aria-pressed="false">New website</button>
+            <button type="button" class="topic rounded-full border border-line px-3.5 py-1.5 text-sm transition" aria-pressed="false">WordPress</button>
+            <button type="button" class="topic rounded-full border border-line px-3.5 py-1.5 text-sm transition" aria-pressed="false">Landing page</button>
+            <button type="button" class="topic rounded-full border border-line px-3.5 py-1.5 text-sm transition" aria-pressed="false">Redesign</button>
+            <button type="button" class="topic rounded-full border border-line px-3.5 py-1.5 text-sm transition" aria-pressed="false">Fix / maintain</button>
+            <button type="button" class="topic rounded-full border border-line px-3.5 py-1.5 text-sm transition" aria-pressed="false">Hiring</button>
+          </div>
+
+          <div class="mt-7 grid gap-5 sm:grid-cols-2">
+            <label class="block">
+              <span class="font-mono text-[11px] uppercase tracking-widest text-muted">name</span>
+              <input required name="name" class="mt-2 w-full rounded-xl border border-line bg-bg/60 px-4 py-3 outline-none transition placeholder:text-muted/60 focus:border-accent focus:ring-4 focus:ring-accent/15" placeholder="Jane Doe" />
+            </label>
+            <label class="block">
+              <span class="font-mono text-[11px] uppercase tracking-widest text-muted">email</span>
+              <input required type="email" name="email" class="mt-2 w-full rounded-xl border border-line bg-bg/60 px-4 py-3 outline-none transition placeholder:text-muted/60 focus:border-accent focus:ring-4 focus:ring-accent/15" placeholder="jane@company.com" />
+            </label>
+          </div>
+          <label class="mt-5 block">
+            <span class="font-mono text-[11px] uppercase tracking-widest text-muted">message</span>
+            <textarea required name="message" rows="5" class="mt-2 w-full resize-none rounded-xl border border-line bg-bg/60 px-4 py-3 outline-none transition placeholder:text-muted/60 focus:border-accent focus:ring-4 focus:ring-accent/15" placeholder="Tell me about your project, timeline and budget…"></textarea>
+          </label>
+          <button class="group mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3.5 font-medium text-onaccent transition hover:shadow-lg hover:shadow-accent/25">
+            Send message
+            <svg class="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </button>
+          <p class="mt-3 text-center font-mono text-[11px] text-muted">opens your email app · no trackers</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ───────────── FOOTER ───────────── -->
+  <footer class="border-t border-line">
+    <div class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-4 py-8 font-mono text-xs text-muted sm:flex-row sm:items-center sm:px-6">
+      <p>© <span id="year"></span> Asad Ali Rao · hand-coded with HTML + Tailwind</p>
+      <p class="flex items-center gap-4">
+        <button class="hover:text-ink" onclick="openK()">press <kbd class="rounded border border-line px-1">Ctrl K</kbd> to navigate</button>
+        <a href="#top" class="hover:text-ink">back to top ↑</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ───────────── COMMAND PALETTE ───────────── -->
+  <div id="kbar" class="fixed inset-0 z-[70] hidden items-start justify-center bg-black/50 px-4 pt-[14vh] backdrop-blur-sm" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="w-full max-w-lg overflow-hidden rounded-2xl border border-line bg-surface shadow-2xl">
+      <div class="flex items-center gap-3 border-b border-line px-4">
+        <svg class="h-4 w-4 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="kbarInput" class="w-full bg-transparent py-4 text-sm outline-none placeholder:text-muted" placeholder="Type a command or search…" autocomplete="off" />
+        <kbd class="rounded border border-line px-1.5 py-0.5 font-mono text-[10px] text-muted">ESC</kbd>
+      </div>
+      <ul id="kbarList" class="max-h-[50vh] overflow-y-auto p-2" role="listbox"></ul>
+      <div class="flex items-center gap-4 border-t border-line px-4 py-2 font-mono text-[10px] text-muted">
+        <span>↑↓ navigate</span><span>↵ select</span><span>esc close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- toast -->
+  <div id="toast" class="pointer-events-none fixed bottom-6 left-1/2 z-[80] -translate-x-1/2 translate-y-4 rounded-full border border-line bg-surface px-4 py-2 font-mono text-xs opacity-0 shadow-xl transition"></div>
+
+  <script>
+    /* ───────────── DATA ───────────── */
+    const THEMES = [
+      { id: 'paper',     label: 'Paper' },
+      { id: 'obsidian',  label: 'Obsidian' },
+      { id: 'terminal',  label: 'Terminal' },
+      { id: 'synthwave', label: 'Synthwave' },
+      { id: 'blueprint', label: 'Blueprint' },
+      { id: 'latte',     label: 'Latte' },
+      { id: 'nord',      label: 'Nord' },
+      { id: 'forest',    label: 'Forest' },
+      { id: 'dracula',   label: 'Dracula' },
+      { id: 'sakura',    label: 'Sakura' },
+    ];
+
+    // Edit this list to add / change projects. `url: null` = no public link.
+    const PROJECTS = [
+      { title: 'SB Fragrances',          cat: 'E-commerce',  url: 'https://sbfragrances.com/',                img: 'work-20-sbfragrances.jpg',    desc: 'Luxury perfume & oud store in Garland, Texas — curated collections, deals and a premium black-and-gold storefront.', tags: ['Store', 'USA'] },
+      { title: 'Al-Birr Int. Academy',   cat: 'Education',   url: 'https://albirrinternationalacademy.com/',  img: 'work-22-albirr.jpg',          desc: 'Online Quran academy with free-trial booking form, course catalogue, how-it-works flow and FAQs.',               tags: ['Lead gen', 'Courses'] },
+      { title: 'Al-Barakah Int. Academy', cat: 'Education',  url: 'https://albarakahinternationalacademy.com/', img: 'work-21-albarakah.jpg',     desc: 'Quran learning academy — structured courses, 3-day free trial, student reviews and a clean enrolment journey.',  tags: ['Courses', 'Responsive'] },
+      { title: 'Liveforce',              cat: 'SaaS',        url: 'https://liveforce.ai/',                    img: 'work-18-liveforce.png',       desc: 'AI + human lead-generation platform connecting businesses with their customers.', tags: ['Landing', 'Responsive'] },
+      { title: 'Tech Fusion Works',      cat: 'Agency',      url: 'https://techfusionworks.com/',             img: 'work-19-techfusion.png',      desc: 'Creative agency specialising in brand development, design and marketing.',          tags: ['Agency', 'Animations'] },
+      { title: 'Inspired Projects',      cat: 'Agency',      url: 'https://inspiredprojects.co.uk/services/', img: 'work-16-inspire.png',         desc: 'UK design, development & fit-out company that breaks the rules for great results.', tags: ['UK', 'Corporate'] },
+      { title: 'SIREN',                  cat: 'Education',   url: 'https://siren.edu.pk/',                    img: 'work-4-siren.jpg',            desc: 'Sindh Innovation, Research & Educational Network — sponsored by the Govt. of Sindh.', tags: ['Gov', 'Education'] },
+      { title: 'PocketThrift',           cat: 'E-commerce',  url: 'https://pocketthrift.com/',                img: 'work-18-pocketthrift.png',    desc: 'Thrift marketplace storefront with a clean, conversion-focused shopping flow.',     tags: ['Store', 'UI'] },
+      { title: 'Wusat Developers',       cat: 'Real Estate', url: 'https://www.wusatdevelopers.com/',         img: 'work-11-wusatdevelopers.jpg', desc: 'Real-estate developer website showcasing projects and investment options.',          tags: ['Property', 'WordPress'] },
+      { title: 'HMR Waterfront',         cat: 'Real Estate', url: 'https://www.hmrwaterfront.com/',           img: 'work-2-hmr.jpg',              desc: 'Luxury waterfront development with rich imagery and immersive layouts.',             tags: ['Luxury', 'Property'] },
+      { title: 'Goldcrest Mall',         cat: 'Real Estate', url: 'https://www.goldcrestmall.com/',           img: 'work-1-goldcrest.jpg',        desc: 'Mall & residences site presenting retail, apartments and amenities.',                tags: ['Retail', 'Property'] },
+      { title: 'Garmin Pakistan',        cat: 'E-commerce',  url: 'https://www.garmin.pk/',                   img: 'work-9-garmin.jpg',           desc: 'Official Garmin store for Pakistan — product catalogue and online shopping.',       tags: ['Store', 'Catalogue'] },
+      { title: 'Celltel',                cat: 'E-commerce',  url: 'https://www.celltel.ae/',                  img: 'work-12-celltel.jpg',         desc: 'UAE electronics & mobile accessories retailer storefront.',                          tags: ['UAE', 'Store'] },
+      { title: 'Kayazar',                cat: 'E-commerce',  url: 'https://www.kayazar.com/',                 img: 'work-10-kayazar.jpg',         desc: 'Brand storefront with bold visuals and product-first layouts.',                      tags: ['Brand', 'Store'] },
+      { title: 'Hajr',                   cat: 'Corporate',   url: 'https://www.hajr.no/',                     img: 'work-13-hajr.png',            desc: 'Norwegian business website with a minimal, Scandinavian feel.',                      tags: ['Norway', 'Minimal'] },
+      { title: 'Magnacrete',             cat: 'Corporate',   url: 'https://www.magnacrete.com.pk',            img: 'work-6-magnacrete.png',       desc: 'Construction materials company — products, projects and company profile.',          tags: ['Industrial', 'Corporate'] },
+      { title: 'Aria Turk',              cat: 'Corporate',   url: null,                                       img: 'work-14-ariaturk.jpg',        desc: 'Ready-mix concrete company in Kabul — products, plants and projects.',              tags: ['Industrial', 'Corporate'] },
+      { title: 'Verve Chefs',            cat: 'Corporate',   url: null,                                       img: 'work-3-chef.jpg',             desc: 'UK hospitality staffing agency with job search, sectors and training programme.',   tags: ['UK', 'Recruitment'] },
+      { title: 'LEJ4Learning',           cat: 'Education',   url: 'https://www.lej4learning.com.pk/',         img: 'work-8-lej4learning.jpg',     desc: 'Learning & education platform with courses and program info.',                       tags: ['Education', 'Responsive'] },
+      { title: 'Helen Property Dev.',    cat: 'SaaS',        url: null,                                       img: 'work-17-nsd.png',             desc: 'Property plug-in — subdivision development search tool for Brisbane addresses.',    tags: ['Tool', 'Australia'] },
+      { title: 'Minecraft Servers',      cat: 'SaaS',        url: 'https://minecraftservers.page/',           img: 'work-5-minecraft.png',        desc: 'Server directory listing with search, ranking and server detail pages.',             tags: ['Directory', 'Web app'] },
+      { title: 'Ownartical',             cat: 'E-commerce',  url: 'https://ownartical.com/coupons',           img: 'work-17-artical.jpg',         desc: 'Coupons & deals portal with store listings and offer cards.',                        tags: ['Coupons', 'Content'] },
+    ];
+
+    const STACK = ['React', 'Next.js', 'Vue.js', 'Nuxt', 'Angular', 'TypeScript', 'JavaScript', 'Laravel', 'Tailwind CSS', 'Sass', 'Bootstrap', 'HTML5', 'CSS3', 'jQuery', 'WordPress', 'Elementor', 'Git', 'Photoshop', 'Illustrator'];
+
+    const SOCIALS = [
+      { label: 'github',   url: 'https://github.com/asaddrao' },
+      { label: 'linkedin', url: 'https://www.linkedin.com/in/asaddrao/' },
+      { label: 'dribbble', url: 'https://dribbble.com/asaddrao' },
+      { label: 'behance',  url: 'https://www.behance.net/asaddrao' },
+      { label: 'twitter',  url: 'https://twitter.com/asaddrao' },
+    ];
+
+    // Newest first. `end: null` = current role. Months are 1-12.
+    const EXPERIENCE = [
+      { company: 'Social Champ', role: 'Frontend Developer · UI/UX', start: [2024, 10], end: null, link: '#featured' },
+      { company: 'Cubix',        role: 'Frontend Developer', start: [2024, 4],  end: [2024, 9] },
+      { company: 'Software One', role: 'Frontend Developer', start: [2023, 7],  end: [2024, 3] },
+      { company: 'Teksyo',       role: 'Frontend Developer', start: [2022, 7],  end: [2023, 6] },
+      { company: 'Mimsoft',      role: 'Frontend Developer', start: [2020, 2],  end: [2022, 6] },
+    ];
+
+    const $ = (s, r = document) => r.querySelector(s);
+    const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+    const root = document.documentElement;
+
+    /* ───────────── THEME ───────────── */
+    function swatch(id) {
+      // read the theme's own vars without applying it
+      const probe = document.createElement('div');
+      probe.setAttribute('data-theme', id);
+      probe.style.display = 'none';
+      document.body.appendChild(probe);
+      const cs = getComputedStyle(probe);
+      const v = (k) => `rgb(${cs.getPropertyValue('--' + k).trim().split(' ').join(',')})`;
+      const out = { bg: v('bg'), surface: v('surface'), accent: v('accent'), accent2: v('accent2'), ink: v('ink') };
+      probe.remove();
+      return out;
+    }
+
+    function setTheme(id, announce) {
+      root.setAttribute('data-theme', id);
+      try { localStorage.setItem('theme', id); } catch (e) {}
+      $('#themeName').textContent = id;
+      $('#themeStatus').textContent = id;
+      $$('#themeList button').forEach(b => b.setAttribute('aria-checked', b.dataset.theme === id));
+      if (announce) toast(`theme → ${id}`);
+    }
+
+    $('#themeList').innerHTML = THEMES.map(t => {
+      const s = swatch(t.id);
+      return `<button role="menuitemradio" data-theme="${t.id}" class="group flex items-center gap-2.5 rounded-xl border border-transparent p-2 text-left text-sm transition hover:bg-surface2 aria-[checked=true]:border-accent/60 aria-[checked=true]:bg-surface2">
+        <span class="relative grid h-8 w-8 shrink-0 place-items-center overflow-hidden rounded-lg border border-line" style="background:${s.bg}">
+          <span class="absolute bottom-1 left-1 h-2.5 w-2.5 rounded-full" style="background:${s.accent}"></span>
+          <span class="absolute right-1 top-1 h-2.5 w-2.5 rounded-full" style="background:${s.accent2}"></span>
+          <span class="font-mono text-[9px] font-semibold" style="color:${s.ink}">Aa</span>
+        </span>
+        <span>${t.label}</span>
+      </button>`;
+    }).join('');
+
+    const themeMenu = $('#themeMenu'), themeBtn = $('#themeBtn');
+    function toggleThemeMenu(open) {
+      open = open ?? themeMenu.classList.contains('invisible');
+      themeMenu.classList.toggle('invisible', !open);
+      themeMenu.classList.toggle('opacity-0', !open);
+      themeMenu.classList.toggle('scale-95', !open);
+      themeBtn.setAttribute('aria-expanded', open);
+    }
+    themeBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleThemeMenu(); });
+    themeMenu.addEventListener('click', (e) => {
+      const b = e.target.closest('button[data-theme]');
+      if (b) setTheme(b.dataset.theme);
+    });
+    document.addEventListener('click', (e) => { if (!themeMenu.contains(e.target)) toggleThemeMenu(false); });
+
+    function cycleTheme() {
+      const i = THEMES.findIndex(t => t.id === root.dataset.theme);
+      setTheme(THEMES[(i + 1) % THEMES.length].id, true);
+    }
+    setTheme(root.dataset.theme);
+
+    /* ───────────── MOBILE MENU ───────────── */
+    const menuBtn = $('#menuBtn'), mobileMenu = $('#mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('hidden') === false;
+      menuBtn.setAttribute('aria-expanded', open);
+    });
+    $$('#mobileMenu a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+    /* ───────────── MARQUEE ───────────── */
+    const chip = (s) => `<span class="flex items-center gap-10 whitespace-nowrap">${s}<span class="text-accent">✦</span></span>`;
+    $('#marquee').innerHTML = [...STACK, ...STACK].map(chip).join('');
+
+    /* ───────────── PROJECTS ───────────── */
+    const CATS = ['All', ...new Set(PROJECTS.map(p => p.cat))];
+    let activeCat = 'All';
+    $('#statProjects').textContent = PROJECTS.length;
+
+    function renderFilters() {
+      $('#filters').innerHTML = CATS.map(c => {
+        const n = c === 'All' ? PROJECTS.length : PROJECTS.filter(p => p.cat === c).length;
+        const on = c === activeCat;
+        return `<button role="tab" aria-selected="${on}" data-cat="${c}" class="shrink-0 whitespace-nowrap rounded-full border px-3.5 py-1.5 text-sm transition ${on ? 'border-accent bg-accent text-onaccent' : 'border-line bg-surface text-muted hover:text-ink'}">${c} <span class="ml-1 font-mono text-[10px] opacity-70">${n}</span></button>`;
+      }).join('');
+    }
+
+    function card(p, i) {
+      const host = p.url ? new URL(p.url).hostname.replace('www.', '') : 'private / offline';
+      const tag = p.url ? 'a' : 'div';
+      const attrs = p.url ? `href="${p.url}" target="_blank" rel="noopener"` : 'tabindex="0"';
+      return `<${tag} ${attrs} class="spot group reveal flex flex-col overflow-hidden rounded-2xl border border-line bg-surface transition duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-2xl hover:shadow-black/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" style="transition-delay:${(i % 3) * 60}ms">
+        <div class="flex items-center gap-1.5 border-b border-line bg-surface2/60 px-3 py-2.5">
+          <span class="h-2.5 w-2.5 rounded-full bg-line"></span><span class="h-2.5 w-2.5 rounded-full bg-line"></span><span class="h-2.5 w-2.5 rounded-full bg-line"></span>
+          <span class="ml-2 flex-1 truncate rounded-md bg-bg/60 px-2 py-0.5 font-mono text-[10.5px] text-muted">${p.url ? '🔒 ' : ''}${host}</span>
+        </div>
+        <div class="shot relative bg-surface2">
+          <img src="assets/work/${p.img}" alt="${p.title} — full page screenshot" loading="lazy" decoding="async" class="block w-full" />
+          <div class="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-surface to-transparent transition-opacity duration-500 group-hover:opacity-0"></div>
+        </div>
+        <div class="flex flex-1 flex-col p-5">
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="text-lg font-semibold tracking-tight">${p.title}</h3>
+            <span class="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-line text-muted transition group-hover:rotate-45 group-hover:border-accent group-hover:bg-accent group-hover:text-onaccent">
+              ${p.url ? '<svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg>' : '<svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/></svg>'}
+            </span>
+          </div>
+          <p class="mt-2 text-sm leading-relaxed text-muted">${p.desc}</p>
+          <div class="mt-auto flex flex-wrap gap-1.5 pt-4 font-mono text-[11px]">
+            <span class="rounded-md bg-accent/10 px-2 py-0.5 text-accent">#${p.cat.replace(' ', '')}</span>
+            ${p.tags.filter(t => t !== p.cat).map(t => `<span class="rounded-md bg-surface2 px-2 py-0.5 text-muted">#${t.replace(' ', '')}</span>`).join('')}
+          </div>
+        </div>
+      </${tag}>`;
+    }
+
+    function renderProjects() {
+      const list = activeCat === 'All' ? PROJECTS : PROJECTS.filter(p => p.cat === activeCat);
+      $('#projects').innerHTML = list.map(card).join('');
+      observeReveals();
+      bindSpots();
+    }
+
+    $('#filters').addEventListener('click', (e) => {
+      const b = e.target.closest('button[data-cat]');
+      if (!b) return;
+      activeCat = b.dataset.cat;
+      renderFilters(); renderProjects();
+    });
+
+    /* ───────────── EXPERIENCE ───────────── */
+    const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const now = new Date();
+    const nowYM = [now.getFullYear(), now.getMonth() + 1];
+    const toIdx = ([y, m]) => y * 12 + (m - 1);
+    const months = (e) => toIdx(e.end || nowYM) - toIdx(e.start) + 1; // inclusive
+    const fmtYM = ([y, m]) => `${MONTHS[m - 1]} ${y}`;
+    const fmtDur = (n) => {
+      const y = Math.floor(n / 12), m = n % 12;
+      return [y && `${y} yr${y > 1 ? 's' : ''}`, m && `${m} mo${m > 1 ? 's' : ''}`].filter(Boolean).join(' ');
+    };
+
+    const firstStart = EXPERIENCE[EXPERIENCE.length - 1].start;
+    const totalYears = Math.floor((toIdx(nowYM) - toIdx(firstStart)) / 12);
+    $$('.yearsExp').forEach(el => el.textContent = `${totalYears}+`);
+    $('#careerStart').textContent = firstStart[0];
+
+    const expList = $('#experienceList');
+    expList.insertAdjacentHTML('beforeend', EXPERIENCE.map((e, i) => {
+      const current = !e.end;
+      return `<li class="reveal relative pb-12 last:pb-0" style="transition-delay:${i * 60}ms">
+        <span class="absolute -left-[calc(2rem+7px)] top-1.5 grid h-3.5 w-3.5 place-items-center rounded-full border-2 ${current ? 'border-accent bg-accent animate-pulseDot' : 'border-line bg-bg'} sm:-left-[calc(2.5rem+7px)]"></span>
+        <div class="spot group rounded-2xl border border-line bg-surface p-5 transition hover:border-accent/50 sm:p-6">
+          <div class="flex flex-wrap items-start justify-between gap-3">
+            <div class="flex items-center gap-4">
+              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-line bg-surface2 font-mono text-sm font-semibold ${current ? 'text-accent' : 'text-muted'}">${e.company.split(' ').map(w => w[0]).join('').slice(0, 2)}</span>
+              <div>
+                <h3 class="text-lg font-semibold tracking-tight">${e.company}</h3>
+                <p class="text-sm text-muted">${e.role}</p>
+              </div>
+            </div>
+            ${current
+              ? '<span class="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-1 font-mono text-[11px] text-accent"><span class="h-1.5 w-1.5 rounded-full bg-accent"></span>current</span>'
+              : ''}
+          </div>
+          <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-line pt-4 font-mono text-xs text-muted">
+            <span class="text-ink">${fmtYM(e.start)} — ${e.end ? fmtYM(e.end) : 'Present'}</span>
+            <span class="text-line">/</span>
+            <span>${fmtDur(months(e))}</span>
+            ${e.link ? `<a href="${e.link}" class="ml-auto text-[#ff7a1a] hover:underline">see my work →</a>` : ''}
+          </div>
+        </div>
+      </li>`;
+    }).join(''));
+
+    // proportional career bar (oldest → newest)
+    const chrono = [...EXPERIENCE].reverse();
+    $('#careerBar').innerHTML = chrono.map((e, i) =>
+      `<span title="${e.company} · ${fmtDur(months(e))}" class="h-full rounded-sm transition hover:opacity-100 ${i === chrono.length - 1 ? 'bg-accent' : 'bg-accent2'}" style="flex:${months(e)};opacity:${0.35 + 0.65 * (i + 1) / chrono.length}"></span>`
+    ).join('');
+    $('#careerLegend').innerHTML = EXPERIENCE.map(e =>
+      `<li class="flex justify-between gap-2"><span class="text-ink">${e.company}</span><span>${fmtDur(months(e))}</span></li>`
+    ).join('');
+
+    /* ───────────── SOCIAL CHAMP SHOWCASE ───────────── */
+    const SC_SHOTS = [
+      { label: 'Analytics',      path: 'analytics',          img: 'sc-analytics.png',  title: 'Analytics Overview',          desc: 'KPI cards with trend deltas, sample-data mode, date ranges and a customizable widget grid.' },
+      { label: 'Publish',        path: 'publish',            img: 'sc-publish.png',    title: 'Publish composer',            desc: 'One composer for 12 networks —live preview, AI suggestions, approval workflows and a guided product tour.' },
+      { label: 'Workspaces',     path: 'settings/workspaces', img: 'sc-workspaces.png', title: 'Workspace management',        desc: 'Plans, teams, timezones and post-approval states in a clean, scannable data table.' },
+      { label: 'Onboarding',     path: 'onboarding/details', img: 'sc-onboarding.png', title: 'Onboarding · quick details',  desc: 'Intent chips, an accounts slider and phone input — personalising the workspace in under a minute.' },
+      { label: 'Connect',        path: 'onboarding/connect', img: 'sc-connect.png',    title: 'Onboarding · connect accounts', desc: 'Platform picker with progressive “show more” reveal and a clear empty state.' },
+    ];
+    const SC_MS = 5500;
+    let scIdx = 0, scPlaying = !matchMedia('(prefers-reduced-motion: reduce)').matches, scHover = false, scVisible = false;
+
+    $('#scStage').innerHTML = SC_SHOTS.map((s, i) =>
+      `<img src="assets/socialchamp/${s.img}" alt="Social Champ — ${s.title}" ${i ? 'loading="lazy"' : ''} decoding="async"
+        class="absolute inset-0 h-full w-full object-cover object-top transition-all duration-700 ${i ? 'scale-[1.02] opacity-0' : ''}" />`
+    ).join('');
+    $('#scTabs').innerHTML = SC_SHOTS.map((s, i) =>
+      `<button role="tab" data-i="${i}" class="group relative shrink-0 overflow-hidden rounded-xl border border-line bg-surface px-4 py-3 text-left transition aria-selected:border-[#ff6b00]/60 aria-selected:bg-[#ff6b00]/10 lg:py-4">
+        <span class="flex items-center gap-3">
+          <span class="font-mono text-[11px] text-muted group-aria-selected:text-[#ff7a1a]">0${i + 1}</span>
+          <span class="text-sm font-medium">${s.label}</span>
+        </span>
+        <span class="mt-1 hidden text-xs text-muted lg:block">${s.title}</span>
+        <span class="sc-bar absolute bottom-0 left-0 h-0.5 w-0 bg-[#ff6b00]"></span>
+      </button>`
+    ).join('');
+
+    function scShow(i) {
+      scIdx = (i + SC_SHOTS.length) % SC_SHOTS.length;
+      const s = SC_SHOTS[scIdx];
+      $$('#scStage img').forEach((img, k) => {
+        img.classList.toggle('opacity-0', k !== scIdx);
+        img.classList.toggle('scale-[1.02]', k !== scIdx);
+      });
+      $$('#scTabs button').forEach((b, k) => b.setAttribute('aria-selected', k === scIdx));
+      $('#scPath').textContent = s.path;
+      $('#scTitle').textContent = s.title;
+      $('#scDesc').textContent = s.desc;
+      // restart the progress bar (a CSS animation; its end advances to the next screen)
+      $$('.sc-bar').forEach(bar => bar.style.animation = 'none');
+      if (scPlaying) {
+        const bar = $$('.sc-bar')[scIdx];
+        void bar.offsetWidth;
+        bar.style.animation = `scBar ${SC_MS}ms linear forwards`;
+      }
+      scSync();
+    }
+    function scSync() {
+      const run = scPlaying && !scHover && scVisible;
+      $$('.sc-bar').forEach(bar => bar.style.animationPlayState = run ? 'running' : 'paused');
+    }
+    function scSetPlaying(on) {
+      scPlaying = on;
+      $('#scPlay').textContent = on ? '❚❚' : '▶';
+      $('#scPlay').setAttribute('aria-label', on ? 'Pause autoplay' : 'Play autoplay');
+      scShow(scIdx);
+    }
+    $('#scTabs').addEventListener('animationend', (e) => { if (e.target.classList.contains('sc-bar')) scShow(scIdx + 1); });
+    new IntersectionObserver(([en]) => { scVisible = en.isIntersecting; scSync(); }, { threshold: 0.25 }).observe($('#scStage'));
+    $('#scTabs').addEventListener('click', (e) => { const b = e.target.closest('[data-i]'); if (b) scShow(+b.dataset.i); });
+    $('#scPrev').addEventListener('click', () => scShow(scIdx - 1));
+    $('#scNext').addEventListener('click', () => scShow(scIdx + 1));
+    $('#scPlay').addEventListener('click', () => scSetPlaying(!scPlaying));
+    const scFrame = $('#scStage').parentElement;
+    scFrame.addEventListener('pointerenter', () => { scHover = true; scSync(); });
+    scFrame.addEventListener('pointerleave', () => { scHover = false; scSync(); });
+    scSetPlaying(scPlaying);
+
+    // lightbox
+    const lb = $('#lightbox');
+    function lbShow(i) {
+      scShow(i);
+      const s = SC_SHOTS[scIdx];
+      $('#lbImg').src = `assets/socialchamp/${s.img}`;
+      $('#lbImg').alt = `Social Champ — ${s.title}`;
+      $('#lbCap').textContent = `${scIdx + 1}/${SC_SHOTS.length} · ${s.title}`;
+    }
+    const lbOpen = () => { lbShow(scIdx); scHover = true; scSync(); lb.showModal(); };
+    $('#scStage').addEventListener('click', lbOpen);
+    $('#scZoom').addEventListener('click', lbOpen);
+    $('#lbPrev').addEventListener('click', () => lbShow(scIdx - 1));
+    $('#lbNext').addEventListener('click', () => lbShow(scIdx + 1));
+    $('#lbClose').addEventListener('click', () => lb.close());
+    lb.addEventListener('click', (e) => { if (e.target === lb) lb.close(); });
+    lb.addEventListener('close', () => { scHover = false; scSync(); });
+    lb.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') lbShow(scIdx - 1);
+      if (e.key === 'ArrowRight') lbShow(scIdx + 1);
+    });
+
+    /* ───────────── SOCIALS / MISC ───────────── */
+    $('#socials').innerHTML = SOCIALS.map(s => `<a href="${s.url}" target="_blank" rel="noopener" class="group rounded-full border border-line bg-surface px-4 py-2 text-muted transition hover:border-accent/60 hover:text-ink">${s.label} <span class="inline-block transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span></a>`).join('');
+    $('#year').textContent = new Date().getFullYear();
+    $('#uptime').innerHTML = Array.from({ length: 40 }, (_, i) => `<span class="h-6 flex-1 rounded-sm ${i === 23 ? 'bg-accent2/60' : 'bg-accent/70'}"></span>`).join('');
+
+    // typing effect
+    const ROLES = ['frontend engineer', 'react developer', 'next.js engineer', 'vue & nuxt dev', 'tailwind enthusiast', 'pixel perfectionist', 'ui craftsman'];
+    (function type(r = 0, i = 0, del = false) {
+      const el = $('#typed'), word = ROLES[r];
+      el.textContent = word.slice(0, i);
+      if (!del && i === word.length) return setTimeout(() => type(r, i, true), 1600);
+      if (del && i === 0) return setTimeout(() => type((r + 1) % ROLES.length, 0, false), 250);
+      setTimeout(() => type(r, i + (del ? -1 : 1), del), del ? 35 : 70);
+    })();
+
+    // Karachi clock
+    function tick() {
+      $('#clock').textContent = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Karachi', hour: '2-digit', minute: '2-digit' }).format(new Date());
+    }
+    tick(); setInterval(tick, 15000);
+
+    // toast + copy
+    let toastT;
+    function toast(msg) {
+      const t = $('#toast');
+      t.textContent = msg;
+      t.classList.remove('opacity-0', 'translate-y-4');
+      clearTimeout(toastT);
+      toastT = setTimeout(() => t.classList.add('opacity-0', 'translate-y-4'), 1800);
+    }
+    async function copy(text) {
+      try { await navigator.clipboard.writeText(text); toast('✓ copied to clipboard'); }
+      catch { location.href = 'mailto:' + text; }
+    }
+    $$('.copy-btn').forEach(b => b.addEventListener('click', () => copy(b.dataset.copy)));
+
+    // contact form → mailto
+    $$('.topic').forEach(b => b.addEventListener('click', () => {
+      const on = b.getAttribute('aria-pressed') !== 'true';
+      b.setAttribute('aria-pressed', on);
+      b.classList.toggle('bg-accent', on); b.classList.toggle('text-onaccent', on); b.classList.toggle('border-accent', on);
+    }));
+    $('#contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const f = new FormData(e.target);
+      const topics = $$('.topic[aria-pressed="true"]').map(b => b.textContent).join(', ');
+      const subject = `Project enquiry${topics ? ' — ' + topics : ''} (from ${f.get('name')})`;
+      const body = `${f.get('message')}\n\n— ${f.get('name')}\n${f.get('email')}`;
+      location.href = `mailto:asaddrao@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      toast('opening your email app…');
+    });
+
+    /* ───────────── MOTION ───────────── */
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    function observeReveals() { $$('.reveal:not(.in)').forEach(el => io.observe(el)); }
+
+    function bindSpots() {
+      $$('.spot:not([data-spot])').forEach(el => {
+        el.dataset.spot = 1;
+        el.addEventListener('pointermove', (e) => {
+          const r = el.getBoundingClientRect();
+          el.style.setProperty('--x', `${e.clientX - r.left}px`);
+          el.style.setProperty('--y', `${e.clientY - r.top}px`);
+        });
+      });
+    }
+
+    const glow = $('#glow');
+    addEventListener('pointermove', (e) => {
+      glow.style.setProperty('--mx', e.clientX + 'px');
+      glow.style.setProperty('--my', e.clientY + 'px');
+    }, { passive: true });
+
+    // scroll progress + active nav
+    const progress = $('#progress');
+    const sections = ['about', 'experience', 'services', 'work', 'principles', 'contact'].map(id => document.getElementById(id));
+    function onScroll() {
+      const h = document.documentElement.scrollHeight - innerHeight;
+      progress.style.transform = `scaleX(${h > 0 ? scrollY / h : 0})`;
+      const er = expList.getBoundingClientRect();
+      const ef = Math.min(Math.max((innerHeight * 0.6 - er.top) / er.height, 0), 1);
+      $('#expFill').style.transform = `scaleY(${ef})`;
+      let current = '';
+      sections.forEach(s => { if (s.getBoundingClientRect().top < innerHeight * 0.4) current = s.id; });
+      $$('.nav-link').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    }
+    addEventListener('scroll', onScroll, { passive: true });
+
+    /* ───────────── COMMAND PALETTE ───────────── */
+    const kbar = $('#kbar'), kInput = $('#kbarInput'), kList = $('#kbarList');
+    const go = (id) => () => document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    const COMMANDS = [
+      { group: 'Navigate', label: 'Home',       hint: '#top',        run: () => scrollTo({ top: 0, behavior: 'smooth' }) },
+      { group: 'Navigate', label: 'About',      hint: '#about',      run: go('about') },
+      { group: 'Navigate', label: 'Experience', hint: '#experience', run: go('experience') },
+      { group: 'Navigate', label: 'Social Champ case study', hint: '#featured', run: go('featured') },
+      { group: 'Navigate', label: 'Services',   hint: '#services',   run: go('services') },
+      { group: 'Navigate', label: 'Work',       hint: '#work',       run: go('work') },
+      { group: 'Navigate', label: 'Principles', hint: '#principles', run: go('principles') },
+      { group: 'Navigate', label: 'Contact',    hint: '#contact',    run: go('contact') },
+      { group: 'Actions',  label: 'Copy email address', hint: 'asaddrao@gmail.com', run: () => copy('asaddrao@gmail.com') },
+      { group: 'Actions',  label: 'Send an email',      hint: 'mailto',             run: () => location.href = 'mailto:asaddrao@gmail.com' },
+      ...THEMES.map(t => ({ group: 'Theme', label: `Switch to ${t.label}`, hint: t.id, run: () => setTheme(t.id, true) })),
+      ...SOCIALS.map(s => ({ group: 'Links', label: `Open ${s.label}`, hint: '↗', run: () => open(s.url, '_blank', 'noopener') })),
+      ...PROJECTS.filter(p => p.url).map(p => ({ group: 'Projects', label: p.title, hint: p.cat, run: () => open(p.url, '_blank', 'noopener') })),
+    ];
+    let kItems = [], kIdx = 0;
+
+    function renderK() {
+      const q = kInput.value.trim().toLowerCase();
+      kItems = COMMANDS.filter(c => (c.label + ' ' + c.group + ' ' + c.hint).toLowerCase().includes(q));
+      kIdx = Math.min(kIdx, Math.max(kItems.length - 1, 0));
+      let last = '';
+      kList.innerHTML = kItems.length ? kItems.map((c, i) => {
+        const head = c.group !== last ? `<li class="px-2 pb-1 pt-3 font-mono text-[10px] uppercase tracking-widest text-muted first:pt-1">${(last = c.group)}</li>` : '';
+        return head + `<li role="option" data-i="${i}" aria-selected="${i === kIdx}" class="group flex cursor-pointer items-center justify-between rounded-lg px-3 py-2.5 text-sm aria-selected:bg-surface2 aria-selected:text-ink text-muted">
+          <span class="flex items-center gap-2"><span class="text-accent opacity-0 group-aria-selected:opacity-100">›</span>${c.label}</span>
+          <span class="font-mono text-[11px] text-muted">${c.hint}</span></li>`;
+      }).join('') : `<li class="px-3 py-8 text-center text-sm text-muted">No results for “${kInput.value}”</li>`;
+      const sel = kList.querySelector('[aria-selected="true"]');
+      sel && sel.scrollIntoView({ block: 'nearest' });
+    }
+    function openK() { kbar.classList.remove('hidden'); kbar.classList.add('flex'); kInput.value = ''; kIdx = 0; renderK(); setTimeout(() => kInput.focus(), 10); }
+    function closeK() { kbar.classList.add('hidden'); kbar.classList.remove('flex'); }
+    function runK(i) { const c = kItems[i]; if (!c) return; closeK(); c.run(); }
+
+    $('#kbarBtn').addEventListener('click', openK);
+    kInput.addEventListener('input', () => { kIdx = 0; renderK(); });
+    kList.addEventListener('click', (e) => { const li = e.target.closest('[data-i]'); if (li) runK(+li.dataset.i); });
+    kList.addEventListener('mousemove', (e) => { const li = e.target.closest('[data-i]'); if (li && +li.dataset.i !== kIdx) { kIdx = +li.dataset.i; renderK(); } });
+    kbar.addEventListener('click', (e) => { if (e.target === kbar) closeK(); });
+
+    addEventListener('keydown', (e) => {
+      const typing = /INPUT|TEXTAREA/.test(document.activeElement.tagName);
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); kbar.classList.contains('hidden') ? openK() : closeK(); return; }
+      if (!kbar.classList.contains('hidden')) {
+        if (e.key === 'Escape') closeK();
+        else if (e.key === 'ArrowDown') { e.preventDefault(); kIdx = (kIdx + 1) % kItems.length; renderK(); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); kIdx = (kIdx - 1 + kItems.length) % kItems.length; renderK(); }
+        else if (e.key === 'Enter') { e.preventDefault(); runK(kIdx); }
+        return;
+      }
+      if (typing) return;
+      if (e.key === 'Escape') toggleThemeMenu(false);
+      if (e.key === '/') { e.preventDefault(); openK(); }
+      if (e.key.toLowerCase() === 't' && !e.ctrlKey && !e.metaKey && !e.altKey) cycleTheme();
+    });
+
+    /* ───────────── INIT ───────────── */
+    renderFilters();
+    renderProjects();
+    observeReveals();
+    bindSpots();
+    onScroll();
+  </script>
+</body>
+</html>

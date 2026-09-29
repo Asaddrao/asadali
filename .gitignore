@@ -1,0 +1,15 @@
+# secrets — never commit
+.env
+.env.*
+
+# original full-size screenshots (optimized JPGs are used instead)
+assets/work/*.com_.png
+
+# OS / editor
+Thumbs.db
+.DS_Store
+.vscode/
+
+# unused (template stock photo, duplicate screenshot)
+assets/about.jpg
+assets/work/work-15-lej4learning.jpg
