@@ -329,7 +329,7 @@
 
           <!-- career bar -->
           <div class="reveal mt-10">
-            <div class="flex justify-between font-mono text-[11px] text-muted"><span id="careerStart">2020</span><span>now</span></div>
+            <div class="flex justify-between font-mono text-[11px] text-muted"><span>// career path</span><span><span id="careerStart">2020</span> → now</span></div>
             <div id="careerBar" class="mt-2 flex h-3 gap-[3px] overflow-hidden rounded-full"></div>
             <ul id="careerLegend" class="mt-4 grid grid-cols-2 gap-x-4 gap-y-1.5 font-mono text-[11px] text-muted"></ul>
           </div>
@@ -869,12 +869,7 @@
     const now = new Date();
     const nowYM = [now.getFullYear(), now.getMonth() + 1];
     const toIdx = ([y, m]) => y * 12 + (m - 1);
-    const months = (e) => toIdx(e.end || nowYM) - toIdx(e.start) + 1; // inclusive
     const fmtYM = ([y, m]) => `${MONTHS[m - 1]} ${y}`;
-    const fmtDur = (n) => {
-      const y = Math.floor(n / 12), m = n % 12;
-      return [y && `${y} yr${y > 1 ? 's' : ''}`, m && `${m} mo${m > 1 ? 's' : ''}`].filter(Boolean).join(' ');
-    };
 
     const firstStart = EXPERIENCE[EXPERIENCE.length - 1].start;
     const totalYears = Math.floor((toIdx(nowYM) - toIdx(firstStart)) / 12);
@@ -901,21 +896,19 @@
           </div>
           <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-line pt-4 font-mono text-xs text-muted">
             <span class="text-ink">${fmtYM(e.start)} — ${e.end ? fmtYM(e.end) : 'Present'}</span>
-            <span class="text-line">/</span>
-            <span>${fmtDur(months(e))}</span>
             ${e.link ? `<a href="${e.link}" class="ml-auto text-[#ff7a1a] hover:underline">see my work →</a>` : ''}
           </div>
         </div>
       </li>`;
     }).join(''));
 
-    // proportional career bar (oldest → newest)
+    // career path: one equal step per company (oldest → newest)
     const chrono = [...EXPERIENCE].reverse();
     $('#careerBar').innerHTML = chrono.map((e, i) =>
-      `<span title="${e.company} · ${fmtDur(months(e))}" class="h-full rounded-sm transition hover:opacity-100 ${i === chrono.length - 1 ? 'bg-accent' : 'bg-accent2'}" style="flex:${months(e)};opacity:${0.35 + 0.65 * (i + 1) / chrono.length}"></span>`
+      `<span title="${e.company} · ${e.role}" class="h-full flex-1 rounded-sm transition hover:opacity-100 ${i === chrono.length - 1 ? 'bg-accent' : 'bg-accent2'}" style="opacity:${0.35 + 0.65 * (i + 1) / chrono.length}"></span>`
     ).join('');
     $('#careerLegend').innerHTML = EXPERIENCE.map(e =>
-      `<li class="flex justify-between gap-2"><span class="text-ink">${e.company}</span><span>${fmtDur(months(e))}</span></li>`
+      `<li class="flex justify-between gap-2"><span class="text-ink">${e.company}</span><span>${e.start[0]}${e.end ? '' : ' → now'}</span></li>`
     ).join('');
 
     /* ───────────── SOCIAL CHAMP SHOWCASE ───────────── */
